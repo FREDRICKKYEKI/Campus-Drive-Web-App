@@ -1,0 +1,44 @@
+.post{
+    max-width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    height:max-content;
+    border: 1px solid rgb(173, 173, 173);
+    margin-left: -25%;
+    transition: all .4s;
+}
+.post-details{
+   display: flex;
+    height: 70px;
+    margin-left: .7rem;
+    align-items: center;
+}
+.profilePic{
+    border-radius: 50%;
+    width: 3.5rem;   
+    height: 3.5rem;   
+
+}
+.names{
+    text-align: start;
+    margin-left: .5rem ;
+}
+.img-post{
+    width: 100%;
+    border-radius: 1px;
+}
+.date {
+    color: gray;
+    text-align: start;
+    margin-left: .4rem;
+}
+.caption{
+    text-align: start;
+    margin: 5px;
+}
+
+@media  screen and (max-width: 1000px){
+.post{
+    margin-left: 0px;
+}
+}

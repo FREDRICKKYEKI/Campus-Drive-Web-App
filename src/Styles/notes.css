@@ -1,0 +1,117 @@
+.caRd, .caRd2, .folder-item{
+    max-width: 700px;
+    background-color: white;
+    border-radius: 4px;
+    height:max-content;
+    border: 1px solid rgb(173, 173, 173);
+}
+
+.folder-code{
+    text-align: start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: .3rem;
+    gap: .4rem;
+    max-width:690px ;
+}
+
+.folder-code h4{
+margin: 1rem;
+}
+.button{
+    width: max-content;
+    height: 30%;
+    background: rgb(255, 208, 0);
+    padding: 8px 16px;
+    margin: 1rem;
+    border-radius: 5px;
+    border-color: rgb(255, 208, 0);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+    float: right;
+}
+.button:hover{
+    background: rgb(233, 190, 0);
+    color: white;
+}
+.button:active{
+    background: rgb(172, 140, 0);
+}
+.folder-item{
+    max-width:690px ;
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+    margin: .3rem;
+    cursor: pointer;
+    transition: .2s;
+    align-items: stretch;
+    text-align: start;
+}
+.folder-item:hover{
+   transform: scale(1.005);
+}
+.folder-item:active{
+    transform: scale(1);
+ }
+.folder-item img{
+    max-width: 10vh;
+}
+.folder-code input{
+    flex: 2 1;
+}
+.fab1{
+    display: block;
+    border-radius: 50%;
+    background-color: rgb(247, 247, 247);
+    width: max-content;
+    padding: 10px 13px;
+    box-shadow: 0px 0px 100px;
+    margin: .5rem;
+    cursor: pointer;
+    box-shadow: -1px 3px 14px -4px rgb(0, 0, 0);
+    transition: all .2s;
+}
+.fabs{
+    position: fixed;
+    bottom: 100px;
+    right: 100px;
+    transition: all .4s;
+}
+.fab1:hover{
+    transform: scale(1.1);
+}
+.fab1:active{
+    transform: scale(1.0);
+
+}
+.files{
+    height: 70%;
+    animation: appearScroll;
+}
+@keyframes appearScroll {
+    
+}
+.home-breadcrumb{
+    cursor: pointer;  
+    max-width: 700px; 
+    background-color:#ffdf5d75;
+    height: max-content;
+    text-align: start;
+    padding: .6rem;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin: .6rem;
+}
+@media  screen and (max-width: 1000px){
+    .fabs{
+        bottom: 30px;
+        right: 30px;
+    }
+    .main{
+        padding-top: 5vh;
+    }
+}

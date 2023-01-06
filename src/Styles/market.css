@@ -1,0 +1,130 @@
+.main2{
+    padding: 1rem;
+    height: 100vh;
+}
+
+.title{
+    text-align: center;
+    /* background-color: white; */
+    padding: 2vh;
+    border-radius: 3px;
+    margin: 4%;
+    margin-left: 70px;
+    transition: all .3s;
+}
+.itemscard{
+    margin-left: 70px;
+    max-width: 1000px;
+    height: max-content;
+    transition: all .3s;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.item{
+    margin: 5px;
+    flex: 1;
+    flex-basis: 30%;
+    min-width: 30%;
+    padding: .4rem;
+    text-align: start;
+    border: 1px solid rgb(216, 216, 216);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .1s;
+    height: max-content;
+}
+.imgdiv{    
+    overflow: hidden;
+    height: 70%;
+}
+.itemimage{
+    transition: all .5s;
+    width: 100%;
+}
+.itemimage:hover{
+    transform: scale(1.1);
+}
+.item:active{
+    transform: scale(1);
+}
+
+.item h4{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: .5rem;
+    font-size: 100%;
+    transition: all .3s;
+}
+.item h4:hover{
+    margin-right: 30px;
+}
+.item p{
+    margin: .5rem;
+    color: gray;
+}
+
+.buybutton{
+    font-weight: bold;
+    width: 89%;
+    background-color: orange;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: all .3s;
+    margin: 5%;
+}
+.buybutton:hover{
+    box-shadow: -1px 3px 14px -4px rgb(0, 0, 0);
+    transform: scale(1.01);
+}
+.buybutton:active{
+    box-shadow: -1px 3px 14px -4px rgba(0, 0, 0, 0);
+    transform: scale(1);
+}
+
+.callbtn{
+    max-width: 100px;
+    width: 30%;
+    background: gold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all .2s;
+}
+.callbtn:hover{
+    color: white;
+    background-color: rgb(39, 39, 39);
+}
+.fa-phone{
+    margin-right: 10px;
+}
+.modal-img{
+    max-width: 300px;
+    width: 100%;
+}
+/* media-queries */
+@media  screen and (max-width: 1165px){
+    .title{
+        width: 100%;
+        margin-left: 0px;
+        background-color: #d1d1d100;   
+    }
+    .itemscard{
+        margin: 10px;
+    }
+    .Modal{
+        margin-left: 0;
+    }
+}
+@media  screen and (max-width: 465px){
+    .Modal{
+        margin-left: auto;
+        width: 80vw;
+        left: 10vw;
+    }
+}

@@ -70,7 +70,7 @@ export const useFirebaseDB =(folderId="",folderName="")=>{
     }
     database.folders
         .where("parentId", "==", `${folderId}`)
-        // .orderBy("createdAt")
+        .orderBy("createdAt")
         .onSnapshot(snapshot => {
         dispatch({type:ACTIONS.SET_FOLDERS,
                     payload:{folders:snapshot.docs}

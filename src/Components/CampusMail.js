@@ -2,7 +2,6 @@ import React, { useEffect,useState } from 'react'
 import ReactDOM from "react-dom"
 import '../Styles/mail.css'
 import { MailItem } from './MailItem'
-import { useFirebaseDB } from '../Hooks/useFirebaseDB'
 import { database } from '../Firebase'
 
 export const CampusMail = ({isClicked, setIsClicked,folderId}) => {
@@ -15,20 +14,20 @@ export const CampusMail = ({isClicked, setIsClicked,folderId}) => {
       setMails(snapshot.docs)})
   },[folderId])
 
-  console.log(mails.map(mail=>database.formatDoc(mail).mail))
+
   return (
     <>
     {ReactDOM.createPortal(
     <div  className='portal'>
         <i onClick={(prev)=>setIsClicked(!prev)} className ='fa fa-close'/>
         <center  className='mail-header'><i className='fa fa-envelope envelope'/>Campus Mail </center>
-        {mails>0&&mails.map((mail, index)=>
-          <MailItem /> 
+        {mails.map((mail, index)=>
+          <MailItem mail={mail} index={index} /> 
         )}              
     </div>
   
     ,document.body)}   
-    mnnjnkj 
+   
     </>
   )
 }

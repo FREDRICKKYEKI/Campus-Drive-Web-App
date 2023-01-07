@@ -55,7 +55,7 @@ export const CampusNotes = () => {
             <form onSubmit={(e)=>openClassFolder(e)} className='caRd'>
                 <span className='folder-code'>
                     <h5>Folder Code:</h5>
-                    <input  ref={folderIdRef} type='text' />              
+                    <input required ref={folderIdRef} type='text' />              
                     <button onSubmit={()=>openClassFolder()} className='button'>Open Folder</button>                 
                 </span>
                
@@ -74,7 +74,7 @@ export const CampusNotes = () => {
                 </div>                     
               ):<i>{loading?
               <div class="spinner-border text-dark" role="status">
-              <span class="sr-only">Loading...</span>
+              <span class="sr-only"></span>
             </div>:<>No folders</>}</i>}</>}
 
             {isFolderOpen&&<>{files.length>0?
@@ -82,7 +82,7 @@ export const CampusNotes = () => {
             <div><File file={file} index={index}/></div>             
             ):<i>{loading?<>
             <div class="spinner-border text-dark" role="status">
-            <span class="sr-only">Loading...</span>
+            <span class="sr-only"></span>
           </div></>:<>{<>No Folders</>}</>}</i>}</>}
             </div>
               

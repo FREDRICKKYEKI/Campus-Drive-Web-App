@@ -48,7 +48,7 @@ margin: 1rem;
     margin: .3rem;
     cursor: pointer;
     transition: .2s;
-    align-items: stretch;
+    align-items: center;
     text-align: start;
 }
 .folder-item:hover{

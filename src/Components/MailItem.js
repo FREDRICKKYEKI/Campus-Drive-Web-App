@@ -17,7 +17,7 @@ export const MailItem = ({mail,index}) => {
     <div style={{background:`${'#'+Math.floor(Math.random()*16777215).toString(16)}`+'70'}} className='item'>      
       <div className='user-details'>
         <div className='dp-div'>
-        <img src={name.url} className='dp' alt='dp'/>
+          <img src={name.url} className='dp' alt='dp'/>
         </div>
         <div className='text-details'>
           <b>{name.name}</b>

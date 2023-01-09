@@ -4,8 +4,9 @@
     border-radius: 10px;
     height:max-content;
     border: 1px solid rgb(173, 173, 173);
-    margin-left: -25%;
+    /* margin-left: -25%; */
     transition: all .4s;
+    
 }
 .post-details{
    display: flex;
@@ -23,14 +24,33 @@
     text-align: start;
     margin-left: .5rem ;
 }
+.img-div{
+    width: 100%;
+    border-radius: 1px;
+    height: 45vh;
+    overflow-y: scroll;
+    display: flex;
+    align-items: center;
+    background-color: rgba(177, 175, 175, 0.342);
+
+}
 .img-post{
     width: 100%;
     border-radius: 1px;
+    transition: all .8s;
+    cursor: pointer;
+}
+.img-post:hover{
+    transform: scale(.5);
 }
 .date {
     color: gray;
     text-align: start;
     margin-left: .4rem;
+}
+.post ::-webkit-scrollbar{
+    opacity: 1;
+    width: 5px;
 }
 .caption{
     text-align: start;

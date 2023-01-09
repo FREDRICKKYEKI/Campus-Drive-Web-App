@@ -39,11 +39,14 @@
 }
 .imgdiv{    
     overflow: hidden;
-    height: 70%;
+    height: 40vh;
+    display: flex;
+    align-items: center;
 }
 .itemimage{
     transition: all .5s;
     width: 100%;
+    height:max-content;
 }
 .itemimage:hover{
     transform: scale(1.1);

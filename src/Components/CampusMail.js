@@ -3,17 +3,10 @@ import ReactDOM from "react-dom"
 import '../Styles/mail.css'
 import { MailItem } from './MailItem'
 import { database } from '../Firebase'
+import { useFirebasePosts } from '../Hooks/useFirebasePosts'
 
 export const CampusMail = ({isClicked, setIsClicked,folderId}) => {
-  const [mails, setMails] = useState([])
-  useEffect(()=>{
-    database.mails
-    .where("folderCode","==",`${folderId}`)
-    .orderBy("timestamp")
-    .onSnapshot(snapshot=>{
-      setMails(snapshot.docs)})
-  },[folderId])
-
+  const {mails} = useFirebasePosts(folderId)
 
   return (
     <>

@@ -50,7 +50,7 @@ export const CampusNotes = () => {
    }
 
   return (
-    <div className='main' style={{paddingTop:"5vh"}}>
+    <div className='main' style={{paddingTop:"15vh"}}>
         <center>       
             <form onSubmit={(e)=>openClassFolder(e)} className='caRd'>
                 <span className='folder-code'>
@@ -77,7 +77,7 @@ export const CampusNotes = () => {
               <span class="sr-only"></span>
             </div>:<>No folders</>}</i>}</>}
 
-            {isFolderOpen&&<>{files.length>0?
+            {isFolderOpen&&<>{files?
             files.map((file,index)=>
             <div><File file={file} index={index}/></div>             
             ):<i>{loading?<>
@@ -85,9 +85,7 @@ export const CampusNotes = () => {
             <span class="sr-only"></span>
           </div></>:<>{<>No Folders</>}</>}</i>}</>}
             </div>
-              
-          
-          
+                                  
         </center>
         <div className='fabs'>
           <div onClick={()=>setIsMessageOpen(!isMessageOpen)}  className='fab1'>

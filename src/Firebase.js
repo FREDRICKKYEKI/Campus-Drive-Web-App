@@ -19,6 +19,7 @@ const app = firebase.initializeApp({
   export const storage = app.storage()
 
   export const database = {
+    marketItems:firestore.collection("market_items"),
     folders: firestore.collection("folders"),
     files: firestore.collection("files"),
     posts: firestore.collection("camp_meet_posts"),

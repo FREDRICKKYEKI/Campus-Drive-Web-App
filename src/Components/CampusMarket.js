@@ -1,17 +1,20 @@
 import React, { useEffect,useState } from 'react'
+import { database } from '../Firebase'
 import '../Styles/market.css'
 import { Modal } from './Modal'
 
 export const CampusMarket = () => {
   const [isBtnPressed, setIsBtnPressed] = useState(false)
-  const [itemDetails,setItemDetails] = useState({name:"",phoneNo:"",index:1,price:""})
+  const [itemDetails,setItemDetails] = useState()
   
   const callHandler=()=>{
-    alert("Copy phone number")
   }
 useEffect(() => {
   document.body.style.background="linear-gradient(308deg,#D9AFD9 0%, #97D9E1 80%) "
   document.title="Campus Market"
+
+  database.marketItems.onSnapshot(snapshot=>setItemDetails(snapshot.docs))
+  console.log(itemDetails)
   return () => {
     document.body.style.background=""
     document.title=""
@@ -20,16 +23,13 @@ useEffect(() => {
 //open modal function
 const openModal = (Item,Index)=>{
   setIsBtnPressed(true)
-  setItemDetails({...itemDetails, name:`${Item}`,index:Index})
 }
 //close modal function
 const closeModal = ()=>{
   setIsBtnPressed(false)
 }
 
-const items =["Timberland Boots","Laptop","Isuzu D-Max","PS5","iPhone5","Smart Watch"]
-const itemImgs=[""]
-const itemPrices =[]
+
   return (
     <div className='main'>
       <div className='titlebg'>
@@ -37,30 +37,21 @@ const itemPrices =[]
       </div>
       <center>
         <div className='itemscard'>
-          {items.map((item,index)=>
+          {itemDetails&&itemDetails.map((item,index)=>
           <div key={index} className='item'>
             <div className='imgdiv'>
-              <img src={`https://picsum.photos/id/${index}/300/300`} className='itemimage' alt='item'/>
+              <img src={`${database.formatDoc(item).url}`} className='itemimage' alt='item'/>
             </div>
-            <h4>{item}</h4>
-            <p className=''>$100</p>
-            <center className=''><div onClick={()=>openModal(item,index)} className='buybutton'><i className='fa fa-shopping-cart'/></div></center>
+            <h4>{database.formatDoc(item).item_name}</h4>
+            <p className=''>{database.formatDoc(item).price}</p>
+            <center className=''><div onClick={()=>openModal(database.formatDoc(item),index)} className='buybutton'><i className='fa fa-shopping-cart'/></div></center>
+            <Modal callHandler={callHandler} item={item} isPressed={isBtnPressed} closeModal={closeModal}/>
           </div>
-          ,)}
+          ,)
+          }
         </div>
         
       </center>
-     <Modal isPressed={isBtnPressed} closeModal={closeModal}>
-        <div className='Modal'>
-          <img src={`https://picsum.photos/id/${itemDetails.index}/300/300`} className='modal-img'/>
-          <p>Name: {itemDetails.name} </p>
-          <p>Price: {itemDetails.price}</p>
-          <p>Number:{itemDetails.phoneNo}</p>
-          <p>Description:</p>
-          <p>Date:</p>
-          <center><div onClick={()=>callHandler()} className='callbtn'><i className='fa fa-phone'/>Call</div></center>
-        </div>
-     </Modal>
     </div>
   )
 }

@@ -27,7 +27,7 @@ margin: 1rem;
     padding: 8px 16px;
     margin: 1rem;
     border-radius: 5px;
-    border-color: rgb(255, 208, 0);
+    border-color: rgba(255, 208, 0, 0);
     font-weight: bold;
     cursor: pointer;
     transition: .2s;
@@ -92,6 +92,7 @@ margin: 1rem;
     height: 70%;
     animation: appearScroll;
 }
+
 @keyframes appearScroll {
     
 }
@@ -112,6 +113,6 @@ margin: 1rem;
         right: 30px;
     }
     .main{
-        padding-top: 5vh;
+        /* padding-top: 10vh; */
     }
 }

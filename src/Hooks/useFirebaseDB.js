@@ -2,28 +2,20 @@ import { useEffect, useReducer } from "react";
 import { database } from "../Firebase";
 
 const ACTIONS= {
-    SELECT_FOLDER:"set-folder",
-    SET_FOLDER_ID:"set-folder-id",
+    SET_FOLDER:"set-folder",
     SET_FILES:"set-files",
     SET_FOLDERS:"set-folders",
-    SET_MAILS:"",
-    SET_CLASSMATES:"",
-    // SET_POSTS:"",
-    // SET_MARKET_ITEMS:""
   }
 
   const reducer = (state, {type,payload})=>{
     switch(type){
-      case ACTIONS.SELECT_FOLDER:
+    
+      case ACTIONS.SET_FOLDER:
         return{
           ...state,
           folder:payload.folder
         }
-      case ACTIONS.SET_FOLDER_ID:
-        return{
-          ...state,
-          folderId: payload.folderId
-        }
+
       case ACTIONS.SET_FILES:
         return{
           ...state,
@@ -35,39 +27,26 @@ const ACTIONS= {
           ...state,
           folders:payload.folders
         }
-      case ACTIONS.SET_MAILS:
-        return{
-          ...state,
-          mails: payload.mails
-        }
-        case ACTIONS.SET_CLASSMATES:
-          return{
-            ...state,
-            classmates: payload.classmates
-          }
+      
     }
   }
 
 export const useFirebaseDB =(folderId="",folderName="")=>{
     const [state, dispatch] = useReducer(reducer, {
-        folderId: '',
+        folder:"",
         folders:[],
         files:[],
-        mails:[],
-        classmates:[],
-        // posts:[],
-        // marketItems:[]
-      })      
       
-    
+      })         
   
     useEffect(()=>{
       if(folderId.length>0){
     database.folders.doc(folderId).get().then((doc)=>{
-      dispatch({type:ACTIONS.SELECT_FOLDER,
+      dispatch({type:ACTIONS.SET_FOLDER,
                 payload:{folder:database.formatDoc(doc)}})
     })  
     }
+    
     database.folders
         .where("parentId", "==", `${folderId}`)
         .orderBy("createdAt")
@@ -89,15 +68,6 @@ export const useFirebaseDB =(folderId="",folderName="")=>{
             })
     },[folderName])
       
-    useEffect(()=>{
-      database.mails
-        .where("folderCode","==",`${folderId}`)
-        .onSnapshot(snapshot=>{
-          dispatch({type:ACTIONS.SET_MAILS,
-                      payload:{mails:snapshot.docs}})})
-      
-    },[folderId])
-    
-   
+  
     return state
 }

@@ -5,6 +5,7 @@ import { CampusMeet } from './Components/CampusMeet';
 import { CampusNotes } from './Components/CampusNotes';
 import { CampusProfile } from './Components/CampusProfile';
 import { Sidebar } from './Components/Sidebar';
+import { Test } from './Test';
 
 function App() {
   return (

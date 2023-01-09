@@ -10,11 +10,11 @@ export const ClassMateItem = ({mate, index}) => {
     <div key={index} className='item'>
         <div className='user-details'>
             <div className='dp-div'>
-                <img src='https://picsum.photos/seed/picsum/200/300' className='dp' alt='dp'/>
+                <img src={imgUrl} className='dp' alt='dp'/>
             </div>
             <div className='text-details'>
                 <b>{person}</b>
-                <p style={{textAlign:"start"}}>{school}</p>
+                <p style={{textAlign:"start",margin:"0"}}>{school}</p>
             </div>       
         </div>      
     </div>

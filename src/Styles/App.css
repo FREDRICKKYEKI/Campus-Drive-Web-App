@@ -13,9 +13,19 @@ body{
 .menu-btn{
   display: none;
   margin: 3vh;
-  transition: all .3s;
+  transition: all .1s;
+  position: fixed;
+  background-color: #051e34ad;
+  color: white;
+  padding: .6rem;
+  border-radius: 50%;
 }
-
+.menu-btn:hover{
+  box-shadow: 0px 0px 10px black;
+}
+.menu-btn:active{
+  box-shadow: 0px 0px 0px black;
+}
 .OverlayM{
   position: fixed;
   width: 100%;
